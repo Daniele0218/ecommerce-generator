@@ -1,0 +1,212 @@
+<!--
+  COOKIE BANNER GDPR — Template riutilizzabile
+
+  ISTRUZIONI PER L'USO:
+  1. Inserire questo HTML DOPO la Sticky CTA e PRIMA del tag <script> in index.html
+  2. Inserire il JavaScript nel blocco <script> principale
+  3. Sostituire i placeholder:
+     - {{STORE_CONSENT_KEY}}: chiave localStorage univoca (es. "nomebrand_cookie_consent")
+     - {{META_PIXEL_ID}}: ID Meta Pixel (lasciare '' se non attivo)
+     - {{TIKTOK_PIXEL_ID}}: ID TikTok Pixel (lasciare '' se non attivo)
+     - {{GA_ID}}: ID Google Analytics (lasciare '' se non attivo)
+  4. Il banner appare SOLO se almeno un pixel ID e configurato
+  5. Tutti i pixel sono BLOCCATI fino a consenso esplicito (injection dinamica)
+
+  REQUISITI GARANTE ITALIANO (Linee Guida 10 giugno 2021):
+  - 3 pulsanti con STESSA prominenza visiva: Accetta / Rifiuta / Personalizza
+  - Nessun checkbox pre-selezionato
+  - Nessun scroll-consent o implied consent
+  - Consenso salvato in localStorage (NON sessionStorage) con versione e timestamp
+  - Link a cookie-policy.html nel banner
+  - Link "Gestisci Cookie" nel footer per riaprire il banner
+  - z-index superiore a sticky CTA
+-->
+
+<!-- ========== HTML: COOKIE BANNER ========== -->
+<!-- Inserire DOPO sticky CTA, PRIMA di <!-- JAVASCRIPT --> -->
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-primary shadow-2xl z-[100] transition-transform duration-300" style="display:none;transform:translateY(100%)">
+  <div class="max-w-6xl mx-auto px-4 py-4 md:py-5">
+    <p class="text-sm text-slate-700 mb-4">
+      Utilizziamo cookie tecnici necessari per il funzionamento del sito e, con il tuo consenso, cookie di profilazione di terze parti per attivita di marketing.
+      Per saperne di piu, consulta la nostra <a href="cookie-policy.html" class="text-primary underline hover:text-primary-dark">Cookie Policy</a>.
+    </p>
+    <div id="cookie-details" class="hidden mb-4 p-4 bg-surface rounded-xl text-sm">
+      <div class="flex items-center justify-between mb-3 pb-3 border-b border-gray-200">
+        <div>
+          <p class="font-semibold text-slate-900">Cookie Tecnici</p>
+          <p class="text-xs text-slate-500">Necessari per il funzionamento del sito (Shopify)</p>
+        </div>
+        <span class="text-xs text-primary font-semibold">Sempre attivi</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-semibold text-slate-900">Cookie di Marketing</p>
+          <p class="text-xs text-slate-500">Meta Pixel e TikTok Pixel — annunci personalizzati su Facebook, Instagram e TikTok</p>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer flex-shrink-0 ml-4">
+          <input type="checkbox" id="cookie-marketing" class="sr-only peer">
+          <div class="w-11 h-6 bg-gray-300 peer-checked:bg-primary rounded-full transition-colors after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-transform peer-checked:after:translate-x-5"></div>
+        </label>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+      <button id="cookie-accept" class="flex-1 bg-primary hover:bg-primary-dark text-white font-semibold text-sm py-2.5 px-5 rounded-xl transition-colors cursor-pointer">
+        Accetta Tutti
+      </button>
+      <button id="cookie-reject" class="flex-1 bg-white border-2 border-primary text-primary hover:bg-primary/5 font-semibold text-sm py-2.5 px-5 rounded-xl transition-colors cursor-pointer">
+        Rifiuta
+      </button>
+      <button id="cookie-customize" class="flex-1 bg-white border-2 border-slate-300 text-slate-700 hover:border-primary hover:text-primary font-semibold text-sm py-2.5 px-5 rounded-xl transition-colors cursor-pointer">
+        Personalizza
+      </button>
+    </div>
+    <button id="cookie-save" class="hidden w-full mt-2 bg-primary hover:bg-primary-dark text-white font-semibold text-sm py-2.5 px-5 rounded-xl transition-colors cursor-pointer">
+      Salva Preferenze
+    </button>
+  </div>
+</div>
+
+
+<!-- ========== FOOTER: Link "Gestisci Cookie" ========== -->
+<!-- Aggiungere nel footer tra i link legali: -->
+<!-- <a href="javascript:void(0)" id="manage-cookies" class="hover:text-white transition-colors">Gestisci Cookie</a> -->
+
+
+<!-- ========== JAVASCRIPT: COOKIE CONSENT ========== -->
+<!-- Inserire nel blocco <script> principale, PRIMA di DOMContentLoaded -->
+<script>
+// ===== COOKIE CONSENT (GDPR) =====
+// CONFIGURAZIONE — sostituire con gli ID reali
+const CONSENT_KEY = '{{STORE_CONSENT_KEY}}';
+const CONSENT_VERSION = '1';
+const META_PIXEL_ID = '{{META_PIXEL_ID}}';
+const TIKTOK_PIXEL_ID = '{{TIKTOK_PIXEL_ID}}';
+// const GA_ID = '{{GA_ID}}'; // Decommentare se si usa Google Analytics
+
+function getCookieConsent() {
+  try {
+    const stored = localStorage.getItem(CONSENT_KEY);
+    if (!stored) return null;
+    const parsed = JSON.parse(stored);
+    if (parsed.version !== CONSENT_VERSION) return null;
+    return parsed;
+  } catch (e) { return null; }
+}
+
+function setCookieConsent(marketing) {
+  localStorage.setItem(CONSENT_KEY, JSON.stringify({
+    version: CONSENT_VERSION,
+    marketing: marketing,
+    timestamp: new Date().toISOString()
+  }));
+}
+
+function loadMetaPixel() {
+  if (!META_PIXEL_ID) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+}
+
+function loadTikTokPixel() {
+  if (!TIKTOK_PIXEL_ID) return;
+  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";
+  ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+  ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";
+  o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];
+  a.parentNode.insertBefore(o,a)};
+  ttq.load(TIKTOK_PIXEL_ID);ttq.page()}(window,document,'ttq');
+}
+
+/* Decommentare se si usa Google Analytics
+function loadGoogleAnalytics() {
+  if (!GA_ID) return;
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config',GA_ID);
+}
+*/
+
+function loadMarketingPixels() {
+  loadMetaPixel();
+  loadTikTokPixel();
+  // loadGoogleAnalytics(); // Decommentare se GA attivo
+}
+
+function hideCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  banner.style.transform = 'translateY(100%)';
+  setTimeout(() => { banner.style.display = 'none'; }, 300);
+}
+
+function initCookieBanner() {
+  // Se nessun pixel configurato, non mostrare il banner
+  if (!META_PIXEL_ID && !TIKTOK_PIXEL_ID) return;
+
+  const consent = getCookieConsent();
+  const banner = document.getElementById('cookie-banner');
+
+  if (consent) {
+    if (consent.marketing) loadMarketingPixels();
+    return;
+  }
+
+  // Mostra banner
+  banner.style.display = '';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      banner.style.transform = 'translateY(0)';
+    });
+  });
+
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    setCookieConsent(true);
+    loadMarketingPixels();
+    hideCookieBanner();
+  });
+
+  document.getElementById('cookie-reject').addEventListener('click', () => {
+    setCookieConsent(false);
+    hideCookieBanner();
+  });
+
+  document.getElementById('cookie-customize').addEventListener('click', () => {
+    document.getElementById('cookie-details').classList.toggle('hidden');
+    document.getElementById('cookie-save').classList.toggle('hidden');
+  });
+
+  document.getElementById('cookie-save').addEventListener('click', () => {
+    const marketingChecked = document.getElementById('cookie-marketing').checked;
+    setCookieConsent(marketingChecked);
+    if (marketingChecked) loadMarketingPixels();
+    hideCookieBanner();
+  });
+}
+
+// ===== CHIAMARE IN DOMContentLoaded =====
+// document.addEventListener('DOMContentLoaded', function() {
+//   initCookieBanner();
+//
+//   // Gestisci Cookie link nel footer
+//   const manageCookiesLink = document.getElementById('manage-cookies');
+//   if (manageCookiesLink) {
+//     manageCookiesLink.addEventListener('click', function() {
+//       localStorage.removeItem(CONSENT_KEY);
+//       initCookieBanner();
+//     });
+//   }
+// });
+</script>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Termini e Condizioni di Vendita | {{STORE_NAME}}</title>
+<meta name="description" content="Termini e condizioni generali di vendita del sito {{STORE_NAME}}. Informazioni su acquisti, spedizioni, resi, garanzia e diritto di recesso.">
+<meta name="robots" content="noindex,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family={{FONT_HEADING_URL}}&family={{FONT_BODY_URL}}&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'{{PRIMARY_COLOR}}','primary-dark':'{{PRIMARY_DARK}}',accent:'{{ACCENT_COLOR}}',surface:'{{SURFACE_COLOR}}'},fontFamily:{heading:['{{FONT_HEADING}}','sans-serif'],body:['{{FONT_BODY}}','sans-serif']}}}}
+</script>
+</head>
+<body class="font-body bg-white text-slate-800 antialiased">
+
+<!-- Header -->
+<header class="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
+  <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="index.html" class="font-heading text-xl font-bold text-slate-900">{{STORE_LOGO_HTML}}</a>
+    <a href="index.html" class="text-sm text-primary hover:text-primary-dark font-medium transition-colors">&larr; Torna allo Store</a>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="max-w-4xl mx-auto px-4 py-10 md:py-14">
+
+  <h1 class="font-heading text-2xl md:text-3xl font-bold text-slate-900 mb-2">Termini e Condizioni Generali di Vendita</h1>
+  <p class="text-sm text-slate-500 mb-10">Ultimo aggiornamento: {{LAST_UPDATED}}</p>
+
+  <!-- 1. Identificazione del Venditore -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">1. Identificazione del Venditore</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Ai sensi dell'art. 7 del D.lgs. 70/2003 e del Codice del Consumo (D.lgs. 206/2005), si forniscono le seguenti informazioni sul venditore:</p>
+    <ul class="list-disc pl-5 space-y-1 text-slate-700">
+      <li><strong>Ragione sociale:</strong> {{LEGAL_NAME}} ({{BUSINESS_TYPE_LABEL}})</li>
+      <li><strong>Partita IVA:</strong> {{VAT_NUMBER}}</li>
+      <li><strong>Sede legale:</strong> {{FULL_ADDRESS}}</li>
+      <li><strong>Email:</strong> {{CONTACT_EMAIL}}</li>
+    </ul>
+  </section>
+
+  <!-- 2. Ambito di Applicazione -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">2. Ambito di Applicazione</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Le presenti Condizioni Generali di Vendita disciplinano l'offerta e la vendita di prodotti sul sito web {{STORE_NAME}} (di seguito "Sito"). Ogni acquisto effettuato sul Sito &egrave; regolato dalle presenti condizioni, che il consumatore &egrave; tenuto ad accettare integralmente al momento dell'ordine.</p>
+    <p class="text-slate-700 leading-relaxed">Le presenti condizioni si applicano a tutti gli acquisti effettuati da consumatori ai sensi dell'art. 3, comma 1, lett. a) del D.lgs. 206/2005 (Codice del Consumo), ovvero persone fisiche che agiscono per scopi estranei all'attivit&agrave; imprenditoriale, commerciale, artigianale o professionale eventualmente svolta.</p>
+  </section>
+
+  <!-- 3. Prodotti -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">3. Prodotti</h2>
+    <p class="text-slate-700 leading-relaxed">Le caratteristiche essenziali dei prodotti sono presentate nelle rispettive pagine prodotto del Sito. Le immagini e le descrizioni presenti sul Sito riproducono nel modo pi&ugrave; fedele possibile le caratteristiche dei prodotti; tuttavia, le immagini hanno carattere puramente indicativo e possono presentare lievi differenze rispetto al prodotto reale in termini di colore, dimensioni o dettagli estetici dovuti al browser o al dispositivo utilizzato per la visualizzazione.</p>
+  </section>
+
+  <!-- 4. Prezzi -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">4. Prezzi</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Tutti i prezzi indicati sul Sito sono espressi in Euro e sono comprensivi di IVA (Imposta sul Valore Aggiunto) applicabile ai sensi di legge.</p>
+    <p class="text-slate-700 leading-relaxed">Le spese di spedizione non sono incluse nel prezzo del prodotto e vengono calcolate e indicate separatamente durante la procedura di acquisto, prima della conferma dell'ordine. Il costo totale dell'ordine, comprensivo di spese di spedizione e ogni eventuale onere aggiuntivo, &egrave; chiaramente indicato nel riepilogo dell'ordine prima del pagamento.</p>
+  </section>
+
+  <!-- 5. Modalita di Pagamento -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">5. Modalit&agrave; di Pagamento</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Il pagamento dei prodotti acquistati sul Sito pu&ograve; essere effettuato tramite i seguenti metodi:</p>
+    <ul class="list-disc pl-5 space-y-1 text-slate-700">
+      <li><strong>Shopify Payments</strong> (gestito da Stripe): Visa, Mastercard, American Express, Apple Pay, Google Pay</li>
+      <li><strong>PayPal</strong></li>
+    </ul>
+    <p class="text-slate-700 leading-relaxed mt-3">Il pagamento viene addebitato al momento della conferma dell'ordine. Tutte le transazioni avvengono tramite connessioni sicure e crittografate. Il Venditore non ha accesso ai dati completi delle carte di pagamento, che sono gestiti direttamente dai rispettivi fornitori di servizi di pagamento.</p>
+  </section>
+
+  <!-- 6. Processo di Acquisto -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">6. Processo di Acquisto e Conclusione del Contratto</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Prima di procedere all'acquisto, il consumatore &egrave; invitato a consultare l'<a href="informativa-precontrattuale.html" class="text-primary hover:text-primary-dark underline font-medium">Informativa Precontrattuale</a>, che contiene tutte le informazioni richieste dagli artt. 49 e 51 del Codice del Consumo.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">Il processo di acquisto si articola nelle seguenti fasi:</p>
+    <ol class="list-decimal pl-5 space-y-1 text-slate-700">
+      <li>Selezione del prodotto e aggiunta al carrello</li>
+      <li>Inserimento dei dati di spedizione e fatturazione</li>
+      <li>Scelta del metodo di pagamento</li>
+      <li>Verifica del riepilogo dell'ordine (prodotti, prezzi, spese di spedizione, totale)</li>
+      <li>Conferma e invio dell'ordine con obbligo di pagamento</li>
+    </ol>
+    <p class="text-slate-700 leading-relaxed mt-3">L'ordine inviato dal consumatore costituisce una proposta contrattuale. Il contratto di vendita si intende concluso nel momento in cui il consumatore riceve l'email di conferma dell'ordine da parte del Venditore, contenente il riepilogo delle condizioni di vendita, le caratteristiche del prodotto acquistato, il prezzo, le spese di spedizione e le informazioni sul diritto di recesso.</p>
+  </section>
+
+  <!-- 7. Spedizione e Consegna -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">7. Spedizione e Consegna</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">I prodotti vengono spediti all'indirizzo indicato dal consumatore durante la procedura d'ordine. I tempi di consegna stimati per spedizioni in Italia sono di {{SHIPPING_DAYS}} giorni lavorativi dalla conferma dell'ordine. I tempi indicati sono puramente indicativi e non vincolanti.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">Al momento della spedizione, il consumatore riceve un'email con il numero di tracking per monitorare lo stato della consegna.</p>
+    <p class="text-slate-700 leading-relaxed">Ai sensi dell'art. 63 del Codice del Consumo (D.lgs. 206/2005), il rischio di perdita o danneggiamento dei beni si trasferisce al consumatore nel momento in cui quest'ultimo, o un terzo da lui designato e diverso dal vettore, entra materialmente in possesso dei beni.</p>
+  </section>
+
+  <!-- 8. Diritto di Recesso -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">8. Diritto di Recesso</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Ai sensi degli artt. 52-59 del D.lgs. 206/2005 (Codice del Consumo), il consumatore ha il diritto di recedere dal contratto di acquisto senza dover fornire alcuna motivazione entro <strong>14 (quattordici) giorni di calendario</strong> dalla data in cui il consumatore o un terzo da lui designato, diverso dal vettore, entra materialmente in possesso del bene acquistato.</p>
+
+    <h3 class="font-heading text-base font-bold text-slate-800 mt-4 mb-2">Come esercitare il diritto di recesso</h3>
+    <p class="text-slate-700 leading-relaxed mb-3">Per esercitare il diritto di recesso, il consumatore deve comunicare la propria decisione mediante una dichiarazione esplicita inviata tramite email all'indirizzo: <a href="mailto:{{CONTACT_EMAIL}}" class="text-primary hover:text-primary-dark underline font-medium">{{CONTACT_EMAIL}}</a>.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">La comunicazione deve contenere:</p>
+    <ul class="list-disc pl-5 space-y-1 text-slate-700">
+      <li>Numero dell'ordine</li>
+      <li>Data dell'acquisto</li>
+      <li>Nome e cognome del consumatore</li>
+      <li>Indirizzo del consumatore</li>
+      <li>Dichiarazione esplicita della volont&agrave; di recedere dal contratto</li>
+    </ul>
+
+    <h3 class="font-heading text-base font-bold text-slate-800 mt-4 mb-2">Condizioni per il reso</h3>
+    <p class="text-slate-700 leading-relaxed mb-3">Il prodotto deve essere restituito integro, non utilizzato (salvo quanto necessario per verificarne la natura, le caratteristiche e il funzionamento), completo di tutti gli accessori e nella confezione originale. Le spese di restituzione del prodotto sono a carico del consumatore, salvo diversa indicazione.</p>
+
+    <h3 class="font-heading text-base font-bold text-slate-800 mt-4 mb-2">Rimborso</h3>
+    <p class="text-slate-700 leading-relaxed">Il Venditore provveder&agrave; al rimborso di tutti i pagamenti ricevuti dal consumatore, incluse le spese di consegna standard, entro <strong>14 (quattordici) giorni</strong> dal ricevimento del prodotto restituito o dalla prova della sua spedizione, a seconda di quale evento si verifichi per primo. Il rimborso sar&agrave; effettuato utilizzando lo stesso mezzo di pagamento usato dal consumatore per la transazione iniziale, salvo diverso accordo. Il Venditore potr&agrave; trattenere il rimborso fino al ricevimento dei beni restituiti.</p>
+  </section>
+
+  <!-- 9. Esclusioni dal Diritto di Recesso -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">9. Esclusioni dal Diritto di Recesso</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Ai sensi dell'art. 59 del Codice del Consumo (D.lgs. 206/2005), il diritto di recesso &egrave; escluso nei seguenti casi:</p>
+    <ul class="list-disc pl-5 space-y-1 text-slate-700">
+      <li>Fornitura di beni sigillati che non si prestano ad essere restituiti per motivi igienici o connessi alla protezione della salute e che sono stati aperti dopo la consegna</li>
+      <li>Fornitura di beni confezionati su misura o chiaramente personalizzati</li>
+      <li>Fornitura di beni che rischiano di deteriorarsi o scadere rapidamente</li>
+      <li>Fornitura di beni che, dopo la consegna, risultano per loro natura inscindibilmente mescolati con altri beni</li>
+      <li>Fornitura di contenuto digitale mediante un supporto non materiale, se l'esecuzione &egrave; iniziata con l'accordo espresso del consumatore e con la sua accettazione della perdita del diritto di recesso</li>
+    </ul>
+  </section>
+
+  <!-- 10. Garanzia Legale -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">10. Garanzia Legale di Conformit&agrave;</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Tutti i prodotti venduti sul Sito sono coperti dalla <strong>Garanzia Legale di Conformit&agrave;</strong> prevista dagli artt. 128-135 del Codice del Consumo (D.lgs. 206/2005). La garanzia ha una durata di <strong>24 (ventiquattro) mesi</strong> dalla data di consegna del prodotto.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">Il consumatore &egrave; tenuto a denunciare il difetto di conformit&agrave; entro <strong>2 (due) mesi</strong> dalla scoperta dello stesso, inviando comunicazione scritta all'indirizzo email <a href="mailto:{{CONTACT_EMAIL}}" class="text-primary hover:text-primary-dark underline font-medium">{{CONTACT_EMAIL}}</a>.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">In caso di difetto di conformit&agrave;, il consumatore ha diritto ai seguenti rimedi, nell'ordine previsto dalla legge:</p>
+    <ol class="list-decimal pl-5 space-y-1 text-slate-700">
+      <li><strong>Riparazione</strong> del bene</li>
+      <li><strong>Sostituzione</strong> del bene, qualora la riparazione non sia possibile o risulti eccessivamente onerosa</li>
+      <li><strong>Riduzione del prezzo</strong>, qualora riparazione e sostituzione non siano praticabili</li>
+      <li><strong>Risoluzione del contratto</strong>, qualora nessuno dei rimedi precedenti sia applicabile o il difetto sia di particolare gravit&agrave;</li>
+    </ol>
+  </section>
+
+  <!-- 11. Resi e Rimborsi -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">11. Resi e Rimborsi</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Per avviare una procedura di reso, il consumatore deve seguire i seguenti passaggi:</p>
+    <ol class="list-decimal pl-5 space-y-1 text-slate-700">
+      <li>Inviare una richiesta di reso via email a <a href="mailto:{{CONTACT_EMAIL}}" class="text-primary hover:text-primary-dark underline font-medium">{{CONTACT_EMAIL}}</a>, indicando il numero dell'ordine e il motivo del reso</li>
+      <li>Attendere le istruzioni del Venditore sulle modalit&agrave; di restituzione del prodotto</li>
+      <li>Spedire il prodotto seguendo le istruzioni ricevute, conservando la prova di spedizione</li>
+    </ol>
+    <p class="text-slate-700 leading-relaxed mt-3">Una volta ricevuto il prodotto restituito e verificata la sua integrit&agrave;, il Venditore proceder&agrave; al rimborso entro i termini previsti dalla legge. Il rimborso sar&agrave; effettuato tramite lo stesso metodo di pagamento utilizzato per l'acquisto originale.</p>
+  </section>
+
+  <!-- 12. Responsabilita -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">12. Responsabilit&agrave;</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Il Venditore non &egrave; responsabile per eventuali danni derivanti dall'uso improprio dei prodotti acquistati o dal mancato rispetto delle istruzioni fornite nella documentazione a corredo del prodotto.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">Il Venditore non &egrave; responsabile per disservizi imputabili a causa di forza maggiore, caso fortuito, problemi della rete Internet, malfunzionamenti dei servizi di hosting o di posta elettronica, nella misura in cui tali circostanze non siano imputabili a negligenza del Venditore stesso.</p>
+    <p class="text-slate-700 leading-relaxed">La responsabilit&agrave; del Venditore nei confronti del consumatore &egrave; in ogni caso limitata nella misura prevista dalla normativa applicabile, con particolare riferimento al Codice del Consumo e al Codice Civile.</p>
+  </section>
+
+  <!-- 13. Risoluzione Alternativa delle Controversie (ADR) -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">13. Risoluzione Alternativa delle Controversie (ADR)</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Ai sensi del D.lgs. 130/2015, che ha recepito la Direttiva 2013/11/UE sulla risoluzione alternativa delle controversie dei consumatori (ADR), il consumatore residente in Europa pu&ograve; ricorrere a organismi di risoluzione alternativa delle controversie (ADR) per risolvere in via extragiudiziale eventuali controversie sorte in relazione a contratti di vendita stipulati sul Sito.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">Si informa che la piattaforma di risoluzione delle controversie online (piattaforma ODR) gestita dalla Commissione Europea &egrave; stata abolita dal Regolamento (UE) 2024/3228, con effetto dal 20 marzo 2025. Pertanto, tale piattaforma non &egrave; pi&ugrave; disponibile.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">Il consumatore pu&ograve; rivolgersi agli organismi ADR autorizzati e iscritti negli elenchi tenuti dalle autorit&agrave; competenti ai sensi del D.lgs. 130/2015. Per maggiori informazioni sugli organismi ADR disponibili in Italia, il consumatore pu&ograve; consultare il sito del Ministero delle Imprese e del Made in Italy (MIMIT) o le sezioni dedicate delle Camere di Commercio territorialmente competenti.</p>
+    <p class="text-slate-700 leading-relaxed">Il Venditore si riserva la facolt&agrave; di aderire o meno alla procedura ADR eventualmente avviata dal consumatore.</p>
+  </section>
+
+  <!-- 14. Legge Applicabile e Foro Competente -->
+  <section class="mb-8">
+    <h2 class="font-heading text-lg md:text-xl font-bold text-slate-900 mb-3">14. Legge Applicabile e Foro Competente</h2>
+    <p class="text-slate-700 leading-relaxed mb-3">Le presenti Condizioni Generali di Vendita sono regolate dalla legge italiana.</p>
+    <p class="text-slate-700 leading-relaxed mb-3">Per qualsiasi controversia relativa all'applicazione, esecuzione e interpretazione delle presenti condizioni, &egrave; competente in via esclusiva il Foro del luogo di residenza o di domicilio del consumatore, ai sensi dell'art. 66-bis del Codice del Consumo (D.lgs. 206/2005), qualora il consumatore risieda o sia domiciliato nel territorio dello Stato italiano.</p>
+    <p class="text-slate-700 leading-relaxed">Qualora l'acquirente non rivesta la qualifica di consumatore ai sensi del Codice del Consumo, per qualsiasi controversia sar&agrave; competente in via esclusiva il Foro di {{FORUM_CITY}}.</p>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-10 mt-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div>
+        <p class="font-heading text-lg font-bold text-white mb-1">{{STORE_LOGO_HTML}}</p>
+        <p class="text-xs">P.IVA: {{VAT_NUMBER}}</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs">
+        <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="cookie-policy.html" class="hover:text-white transition-colors">Cookie Policy</a>
+        <a href="termini-condizioni.html" class="hover:text-white transition-colors">Termini e Condizioni</a>
+        <a href="javascript:void(0)" class="hover:text-white transition-colors">Gestisci Cookie</a>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 mt-6 pt-6 text-center text-xs">
+      <p>&copy; {{CURRENT_YEAR}} {{STORE_NAME}}. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
