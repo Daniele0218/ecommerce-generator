@@ -252,24 +252,37 @@ Crea `store-info.json`:
 }
 ```
 
+### Architettura: 1 Store = 1 Repo GitHub = 1 Progetto Vercel
+**REGOLA FONDAMENTALE**: Ogni store ha il proprio repo GitHub dedicato. MAI usare branch dello stesso repo per store diversi.
+
+- Il workspace `ecommerce-generator` e la "fabbrica" che genera gli store — NON va deployato su Vercel
+- Ogni store generato va nel suo repo: `store-{brand-name}` (es. `store-nottesud`, `store-mioaltrobrand`)
+- Vercel free supporta progetti illimitati, ogni repo = 1 URL (es. `store-nottesud.vercel.app`)
+- Dominio custom opzionale per ogni progetto Vercel
+
 ### Deploy: Frontend → GitHub → Vercel
 Il deploy segue SEMPRE questo flusso:
 
-**Se il repo GitHub dello store esiste già:**
+**Se il repo GitHub dello store esiste gia:**
 1. Copia i file generati nel repo locale
 2. `git add . && git commit -m "Store update" && git push origin main`
-3. Vercel auto-deploya (è già collegato)
+3. Vercel auto-deploya (e gia collegato)
 
-**Se è il primo deploy (repo non esiste):**
-1. Crea repo GitHub: `gh repo create store-{brand-name} --public --clone` (oppure istruzioni manuali)
-2. Copia `index.html` (e eventuali `product-*.html`) nella root del repo
-3. NON includere `social-captions.md` e `store-info.json` nel repo (sono file interni, non servono al frontend)
-4. INCLUDERE le 4 pagine legali HTML nel repo (privacy-policy.html, cookie-policy.html, termini-condizioni.html, informativa-precontrattuale.html)
+**Se e il primo deploy (repo non esiste):**
+1. Crea repo GitHub: `gh repo create store-{brand-name} --public --clone`
+2. Copia nella root del repo:
+   - `index.html` (e eventuali `product-*.html`)
+   - Le 4 pagine legali (`privacy-policy.html`, `cookie-policy.html`, `termini-condizioni.html`, `informativa-precontrattuale.html`)
+3. NON includere nel repo: `social-captions.md`, `store-info.json` (sono file interni)
 4. Push su `main`
 5. Vai su vercel.com → Add New → Project → Import repo GitHub
 6. Settings: Framework "Other", Output Directory ".", nessun build command
 7. Deploy → URL live generata automaticamente
 8. (Opzionale) Collega dominio custom in Vercel → Settings → Domains
+
+**Dopo il deploy**, aggiorna `store-info.json` con:
+- `"deployed_url": "https://store-nomebrand.vercel.app"`
+- `"github_repo": "store-nomebrand"`
 
 Fornisci sempre all'utente:
 - I comandi git esatti da eseguire
@@ -277,6 +290,7 @@ Fornisci sempre all'utente:
 - Istruzioni per dominio custom se richiesto
 
 **MAI deployare via Vercel API diretta o CLI senza repo GitHub.**
+**MAI deployare il repo ecommerce-generator — e solo il tool di generazione.**
 
 ## Fase 13 — RIEPILOGO
 Mostra:

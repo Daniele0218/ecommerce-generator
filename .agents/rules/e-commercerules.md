@@ -166,7 +166,19 @@ Per OGNI store generato, OBBLIGATORIO:
 6. **Piattaforma ODR**: abolita da Reg. UE 2024/3228 (marzo 2025) — NO riferimenti nei termini
 7. **Leggi la skill** `legal-compliance` per istruzioni dettagliate e checklist
 
-## Struttura Output e Deploy
+## Architettura Workspace e Deploy
+
+### Questo Workspace è la "Fabbrica"
+Il repo `ecommerce-generator` è il **tool di generazione** — contiene workflow, regole, skill, template e output generati. **NON va MAI deployato su Vercel.**
+
+### 1 Store = 1 Repo GitHub = 1 Progetto Vercel
+**REGOLA FONDAMENTALE**: Ogni store generato ha il proprio repo GitHub dedicato.
+- Repo naming: `store-{brand-name}` (es. `store-vasca-ultrasuoni`, `store-mioaltrobrand`)
+- MAI usare branch dello stesso repo per store diversi
+- Vercel free = progetti illimitati → ogni repo = 1 URL (es. `store-vasca-ultrasuoni.vercel.app`)
+- Dominio custom opzionale per ogni progetto Vercel
+
+### Struttura Output (dentro ecommerce-generator)
 ```
 output/stores/{brand-name-lowercase}/
 ├── index.html ← Store principale
@@ -175,12 +187,19 @@ output/stores/{brand-name-lowercase}/
 ├── cookie-policy.html ← Cookie Policy
 ├── termini-condizioni.html ← Termini e Condizioni di Vendita
 ├── informativa-precontrattuale.html ← Informativa Precontrattuale
-├── social-captions.md ← (interno, non deployare)
-└── store-info.json ← (interno, non deployare)
+├── social-captions.md ← (interno, NON deployare)
+└── store-info.json ← (interno, NON deployare)
 ```
-Deploy: genera file → push GitHub → Vercel auto-deploya. Repo con index.html in root. Framework: Other, output: `.`, nessun build. Push main=produzione, branch/PR=preview.
 
-**MAI**: ❌ Vercel API diretta ❌ `vercel deploy` CLI senza repo → ✅ Sempre GitHub→Vercel Git integration
+### Flusso Deploy
+1. Genera file in `output/stores/{brand}/`
+2. Crea repo GitHub dedicato: `gh repo create store-{brand} --public --clone`
+3. Copia nella root del repo: `index.html`, pagine legali, eventuali `product-*.html`
+4. **NON includere** nel repo dello store: `social-captions.md`, `store-info.json`
+5. Push su `main` → Vercel auto-deploya
+6. Vercel settings: Framework "Other", Output Directory ".", nessun build command
+
+**MAI**: ❌ Vercel API diretta ❌ `vercel deploy` CLI senza repo ❌ Deployare `ecommerce-generator` → ✅ Sempre GitHub repo dedicato → Vercel Git integration
 
 ## Errori da NON Commettere Mai
 - MAI URL immagini inventati/placeholder, `{VARIABILE}` non sostituita, Lorem Ipsum
