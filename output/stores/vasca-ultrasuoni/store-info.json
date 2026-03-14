@@ -1,0 +1,47 @@
+{
+  "brand": "NotteSud",
+  "domain": "dagrox.com",
+  "niche": "Personal Care / Cleaning Gadgets",
+  "target": "Uomini e donne 25-55 anni, possiedono gioielli, occhiali o orologi, cercano soluzioni pratiche per la cura dei propri accessori",
+  "palette": {
+    "primary": "#0D9488",
+    "primary_dark": "#0F766E",
+    "accent": "#F59E0B",
+    "background": "#FFFFFF",
+    "surface": "#F9FAFB",
+    "text": "#0F172A"
+  },
+  "fonts": {
+    "heading": "Poppins",
+    "body": "Inter"
+  },
+  "strategies_applied": [
+    "PAS Framework",
+    "Price Anchoring (compare_at_price)",
+    "Quantity Upsell (2x -15%, 3x -25%)",
+    "Social Proof (reviews statiche, counter clienti)",
+    "Urgency (disponibilita limitata)",
+    "Trust Badges (pagamento sicuro, reso 14gg, spedizione tracciata)",
+    "Sticky CTA Mobile",
+    "Exit Intent Popup (-10%)",
+    "FAQ Strategiche (gestione obiezioni)",
+    "Fade-in Animations (IntersectionObserver)"
+  ],
+  "products": [
+    {
+      "title": "Pulitore a Ultrasuoni 45kHz Portatile 300ml",
+      "handle": "portable-45khz-high-frequency-ultrasonic-cleaner-machine-for-jewelry-glasses-watches-makeup-tools-for-household-use",
+      "price": 34.99,
+      "compare_price": 49.99,
+      "currency": "EUR",
+      "variants": ["White / EU Plug", "Green / EU Plug"]
+    }
+  ],
+  "shopify": {
+    "shop_domain": "mar6q1-11.myshopify.com",
+    "api_version": "2026-01"
+  },
+  "created": "2026-02-26",
+  "deployed_url": "",
+  "github_repo": ""
+}
